@@ -1,0 +1,24 @@
+---
+title: "Homework 3"
+author: "Nathan Tran-Trinh"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(tidyverse)
+myData = read.csv("/Users/quoctran/Downloads/congressional_hearings.csv", header=TRUE)
+library(ggplot2)
+```
+
+## R Markdown
+
+This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+
+When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+
+```{r cars}
+ggplot(myData, aes(Sessions)) + geom_histogram()
+```
+
+In this case I utilized a histogram plot to demonstrate the number of sessions an individual bill represented in the data had gone through. I considered using a scatter plot or a violin plot but found that this was likely the best course of action in determining information from the data, particularly finding topics where efficacy of bureaucracy is a problem. Thus far I have found this dataset rather vast for any simplistic visualization to be sufficient for my likings and would like to break the data into multiple datasets by year.

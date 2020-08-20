@@ -1,0 +1,35 @@
+---
+title: "Homework 4"
+author: "Nathan Tran-Trinh"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(tidyverse)
+myData = read.csv("/Users/quoctran/Downloads/congressional_hearings.csv", header=TRUE)
+library(ggplot2)
+```
+
+## R Markdown
+
+This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+
+When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+
+```{r}
+ggplot(myData, aes(Sessions)) + geom_histogram()
+```
+
+The Committee1 variable, as described in the codebook, refers to the full committee to which the hearing in question (per data point) belongs. The Committee2 variable is used in cases where two Congressional committees held a hearing on the same bill or general topic. The Sessions variable refers to how many meetings amongst the committee(s) on the topic in question took place. I hypothesize that when Committee2 is set to 0 (ie; only one Congressional committee was involved in the hearing in question) the number of Sessions is on average lower, due to the lower amount of potential for conflict.
+
+```{r cars}
+summary(myData)
+```
+As one can see above, 94252 cases have a Subcommittee2 value of 0 (and resultantly have an identical Committee2 value). The mean of all values for Sessions is 0.79.
+```{r}
+ggplot(myData, aes(Sessions, fill = Committee2)) + geom_bar() +
+  theme_bw() +
+  labs(title = "Session count vs Committee2", y = "Number of Sessions", x = "Committee2 value")
+```
+As one can see here, the overall session count is lower in total and on average when Committee2 is set to zero. This supports my hypothesis.

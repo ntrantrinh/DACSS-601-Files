@@ -1,0 +1,23 @@
+---
+title: "Homework 2"
+author: "Nathan Tran-Trinh"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(tidyverse)
+myData = read.csv("/Users/quoctran/Downloads/congressional_hearings.csv", header=TRUE)
+```
+
+## R Markdown
+
+This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+
+When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+
+```{r cars}
+summary(myData)
+```
+
+The dataset summarized above is from the Congressional Hearings Database accumulated by the Comparative Agendas Project. This data contains 36 variables for 100254 observations. According to the website itself, however, there are meant to be 899615 observations spanning from 1940 to 2019. This is likely explained by each individual observation accounting for anywhere from 1 to multiple observations due to the nature of the political process surrounding Congressional hearings and the system of checks and balances. The averaging of the ID variable is meaningless in this context since these are unique demarcators and not arithmetic values, and for some other variables such as year the values provided do not provide useful information due to the vast observation count.
